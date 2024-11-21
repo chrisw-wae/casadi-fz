@@ -187,10 +187,6 @@ jobs:
           key: "${{matrix.arch}}"
           map: |
            {
-              "manylinux1-x64": {"os": "linux", "bitness": "64"},
-              "manylinux1-x86": {"os": "linux", "bitness": "32"},
-              "manylinux2014-x64": {"os": "linux", "bitness": "64"},
-              "manylinux2014-x86": {"os": "linux", "bitness": "32"},
               "windows-shared-x64-posix": {"os": "windows", "bitness": "64"}
            }
           export_to: env
@@ -254,7 +250,7 @@ jobs:
           map: |
            {
               "windows-2022": {"os": "windows"},
-              "ubuntu-20.04": {"os": "linux"},
+              "ubuntu-20.04": {"os": "linux"}
            }
           export_to: env
       - uses: actions/download-artifact@v4.1.7
