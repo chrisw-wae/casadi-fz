@@ -1,4 +1,4 @@
-name: matlab-build
+name: matlab-build-windows
 
 on: workflow_dispatch
 
