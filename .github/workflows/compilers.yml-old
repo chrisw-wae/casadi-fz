@@ -1,6 +1,6 @@
 name: compilers (experimental)
 
-on: push
+on: workflow_dispatch
 
 env:
   cache-suffix: v11
