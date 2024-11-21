@@ -326,7 +326,7 @@ jobs:
           file: docs/example_pack/example_pack.zip
           asset_name: casadi-example_pack-v${{ needs.version.outputs.casadi }}.zip
           prerelease: true
-        if: github.event_name != 'pull_request'      - 
+        if: github.event_name != 'pull_request'
       - uses: svenstaro/upload-release-action@2.9.0
         with:
           overwrite: true
