@@ -456,7 +456,7 @@ jobs:
 
   test-octave:
     runs-on: ${{matrix.image}}
-    needs: [matlab-dockcross,matlab-osx]
+    needs: [matlab-dockcross]
     strategy:
      fail-fast: false
      matrix:
