@@ -151,7 +151,7 @@ jobs:
       matrix:
         include:
           - host: matlab
-            version: 2018b
+            version: 2020b
             arch: windows-shared-x64-posix
           - host: matlab
             version: 2023b
@@ -232,7 +232,7 @@ jobs:
     strategy:
      fail-fast: false
      matrix:
-       matlab: ["2018b","2023b"]
+       matlab: ["2020b","2023b"]
        image: ["windows-2022","ubuntu-20.04"]
        bit: [64]
        exclude:
