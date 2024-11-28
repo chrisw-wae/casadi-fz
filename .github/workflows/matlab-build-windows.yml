@@ -233,7 +233,7 @@ jobs:
      fail-fast: false
      matrix:
        matlab: ["2020b","2023b"]
-       image: ["windows-2022","ubuntu-20.04"]
+       image: ["windows-2022"]
        bit: [64]
        exclude:
         # No Windows 32bit builds currently
@@ -250,7 +250,6 @@ jobs:
           map: |
            {
               "windows-2022": {"os": "windows"},
-              "ubuntu-20.04": {"os": "linux"}
            }
           export_to: env
       - uses: actions/download-artifact@v4.1.7
@@ -259,15 +258,10 @@ jobs:
       - run: ls
       - name: Unpack source
         run: unzip casadi-${{env.os}}${{matrix.bit}}-matlab${{matrix.matlab}}.zip -d casadi
-      - run: echo "MATLABPATH=${{ github.workspace }}/casadi" >> $GITHUB_ENV
-        if: "!contains(env.os, 'windows')"
       - run: echo "MATLABPATH=${{ github.workspace }}\casadi" >> $env:GITHUB_ENV
         if: "contains(env.os, 'windows')"
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v1.2.4
-
-      - run: cd test && python internal/test_matlab.py -skipfiles="callback.m solvers.m" matlab
-        if: "!contains(env.os, 'windows')"
       - run: cd test && python internal/test_matlab.py -skipfiles="solvers.m" matlab
         if: "contains(env.os, 'windows')"
       - uses: casadi/commercial_solvers@master
@@ -278,9 +272,6 @@ jobs:
         if: ${{ env.JGILLIS_RESTRICTED == 'true' }}
 
       # Leads to `MATLAB: detail/MvmLocalBoundMethods.cpp:112: static void mvm::detail::MvmLocalBoundMethods::initMethods(bool): Assertion `Failed to open local mvm library: /usr/local/MATLAB/R2023a/bin/glnxa64/libmwgraphblas.so.7: undefined symbol: GOMP_loop_nonmonotonic_dynamic_start, version VERSION' failed.`
-      - run: echo "LD_PRELOAD=" >> $GITHUB_ENV
-        if: "contains(env.os, 'linux')"
-
       - name: Run script
         uses: matlab-actions/run-command@v1.1.2
         with:
