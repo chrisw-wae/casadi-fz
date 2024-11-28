@@ -249,7 +249,7 @@ jobs:
           key: "${{matrix.image}}"
           map: |
            {
-              "windows-2022": {"os": "windows"},
+              "windows-2022": {"os": "windows"}
            }
           export_to: env
       - uses: actions/download-artifact@v4.1.7
