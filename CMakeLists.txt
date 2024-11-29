@@ -816,7 +816,7 @@ set(BUILD_MUMPS_DEPENDENCIES LAPACK METIS)
 
 # SPRAL
 option(WITH_SPRAL "Enable SPRAL interface" OFF)
-set(BUILD_SPRAL_VERSION "v2024.05.08" CACHE STRING "Tag/branch/hash to be used for BUILD_SPRAL_GIT_REPO")
+set(BUILD_SPRAL_VERSION "d385d2c9e858366d257cafaaf05760ffa6543e26" CACHE STRING "Tag/branch/hash to be used for BUILD_SPRAL_GIT_REPO")
 set(BUILD_SPRAL_GIT_REPO "https://github.com/ralna/spral.git" CACHE STRING "Git repo used together with BUILD_SPRAL_VERSION")
 set(BUILD_SPRAL_GIT_SHALLOW OFF CACHE BOOL "Use shallow clone for SPRAL")
 option(WITH_BUILD_SPRAL "Build SPRAL (BUILD_SPRAL_VERSION=${BUILD_SPRAL_VERSION}) from downloaded source (BUILD_SPRAL_GIT_REPO=${BUILD_SPRAL_GIT_REPO})." OFF)
